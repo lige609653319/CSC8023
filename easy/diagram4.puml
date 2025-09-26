@@ -1,0 +1,24 @@
+@startuml
+
+' Define classes
+class Institution {
+    +name (PK) : string
+}
+
+class Course {
+    +unique_code (PK) : int
+    +title : string
+    +duration : int
+}
+
+class Instructor {
+    +id (PK) : int
+    +full_name : string
+    +qualifications : array
+}
+
+' Relationships
+Instructor "1" --> "0..*" Course : teach
+Institution "1" --> "0..*" Course : train
+Course "1" --> "0..*" Course : prerequisite
+@enduml

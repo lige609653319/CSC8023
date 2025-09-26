@@ -1,0 +1,34 @@
+@startuml
+
+' Define classes
+class Musicians {
+    +artist_number (PK) : string
+    +name : string
+    +phone_number : string
+}
+
+class Albums {
+    +id (PK) : string
+    +title  : string
+    +production_date  (PK) : date
+}
+
+
+class Songs {
+    +id (PK) : string
+    +title : string
+}
+
+class Instrument {
+    +id (PK) : string
+    +name : string
+}
+
+' Relationships
+Songs "1..*" --> "1..*" Musicians : performed
+Musicians "1..*" --> "1..*" Songs : perform
+Musicians "1..*" --> "1..*" Albums : have
+Albums "1..*" --> "1" Musicians : produced
+Albums "1" --> "1..*" Songs : contains
+Musicians "1" --> "0..*" Instrument : play
+@enduml

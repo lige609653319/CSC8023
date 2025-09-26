@@ -1,0 +1,17 @@
+@startuml
+
+' Define classes
+class Customer {
+    +customer_id (PK) : int
+    +name : string
+}
+
+class Order {
+    +order_id (PK) : int
+    +order_content : string
+}
+
+' Relationships
+Customer "1" --> "0..*" Order : place
+
+@enduml

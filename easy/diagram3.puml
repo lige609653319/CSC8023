@@ -1,0 +1,23 @@
+@startuml
+
+' Define classes
+class Team {
+    +name (PK) : string
+}
+
+class Player {
+    +id (PK) : int
+    +full_name : string
+    +date_of_birth : date
+    +is_captain : boolean
+}
+
+class Color {
+    +id (PK) : int
+    +order_content : string
+}
+
+' Relationships
+Team "1" --> "0..*" Player : have
+Team "1" --> "1..*" Color : jersey
+@enduml

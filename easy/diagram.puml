@@ -1,0 +1,17 @@
+@startuml
+
+' Define classes
+class Author {
+    +author_id : int
+    +name : string
+}
+
+class Book {
+    +book_id : int
+    +title : string
+}
+
+' Relationships
+Author "1..*" --> "0..*" Book : writes
+
+@enduml

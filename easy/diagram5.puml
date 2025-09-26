@@ -1,0 +1,36 @@
+@startuml
+
+' Define classes
+class Country {
+    +name (PK) : string
+}
+
+class County {
+    +name (PK) : string
+    +size : string
+    +country_name  (PK) : string
+}
+
+
+class City {
+    +name (PK) : string
+    +population : int
+    +county_name  (PK) : string
+}
+
+' Relationships
+Country "1" --> "1..*" County : have
+County "1" --> "1..*" City : have
+City "1" --> "1" Country : capital
+
+note right of County
+Composite Primary Key:
+(name, country_name)
+end note
+
+note right of City
+Composite Primary Key:
+(name, county_name)
+end note
+
+@enduml
